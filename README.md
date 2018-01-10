@@ -1,2 +1,7 @@
 # ChessEngine
-Python AI for playing Chess, complete with GUI. You're welcome to try to defeat it!
+
+This project is an AI capable of playing chess, along with a GUI to facilitate games against human opponents. The GUI is handled through tkinter. The engine computes its move by approximating values of all of its possible moves, through minimax. As an exhaustive search of all possible game states is computationally unfeasible, the engine restricts its search to some number of layers, based on the amount of time allocated for its move. More time is allocated for moves which seem more promising, such as captures of high-value pieces. The value of a final state is based primarily on material, with small bonuses given to certain positional outcomes.
+
+For the early moves of the game, the engine instead relies on its bank of openings, which are generated through the Opening Parser. Essentially, if a given sequence of moves has been played before in one of the provided games, the engine references such game in order to make its move. If a given sequence of moves has been played multiple times, the engine selects the most popular next move. The previous games are stored in a trie for quick access. Thus, the opening moves are made almost instantaneously by the AI.
+
+The program is set up for a human to play white against an AI on a 2-minute clock, but this state can be altered through the variables IsBlackAI, IsWhiteAI, BlackTimeLeft, and WhiteTimeLeft. The GUI requires all image files in order to be run without error.
